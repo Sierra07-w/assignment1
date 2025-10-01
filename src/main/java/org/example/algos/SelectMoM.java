@@ -23,7 +23,6 @@ public class SelectMoM {
             return arr[left];
         }
 
-        // выбираем pivot через медиану медиан
         int pivotIndex = pivotIndex(arr, left, right);
         pivotIndex = partition(arr, left, right, pivotIndex);
 
