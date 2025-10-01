@@ -26,7 +26,7 @@ public class QuickSort {
             int i = left;
             int j = right;
 
-            // partition
+          
             while (i <= j) {
                 while (arr[i] < pivot) { i++; m.incComparisons(1); }
                 while (arr[j] > pivot) { j--; m.incComparisons(1); }
@@ -37,13 +37,12 @@ public class QuickSort {
                 }
             }
 
-            // Рекурсируемся на меньшей половине
             if (j - left < right - i) {
                 if (left < j) quicksort(arr, left, j, m);
-                left = i; // итерация по большой части
+                left = i; 
             } else {
                 if (i < right) quicksort(arr, i, right, m);
-                right = j; // итерация по большой части
+                right = j;
             }
 
             m.exitRecursion();
