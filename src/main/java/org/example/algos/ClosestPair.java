@@ -38,10 +38,8 @@ public class ClosestPair {
         Result best = left.dist < right.dist ? left : right;
         double delta = best.dist;
 
-        // merge sort by y
         mergeByY(pts, l, mid, r, buffer);
 
-        // build strip
         List<Point> strip = new ArrayList<>();
         for (int i = l; i <= r; i++) {
             if (Math.abs(pts[i].x - midX) < delta) {
@@ -49,7 +47,6 @@ public class ClosestPair {
             }
         }
 
-        // check neighbors in strip
         for (int i = 0; i < strip.size(); i++) {
             for (int j = i + 1; j < strip.size() && (strip.get(j).y - strip.get(i).y) < delta; j++) {
                 m.incComparisons(1);
