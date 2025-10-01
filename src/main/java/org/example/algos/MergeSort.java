@@ -6,22 +6,21 @@ public class MergeSort {
     private static final int INSERTION_SORT_THRESHOLD = 16;
     private static Metrics metrics;
 
-    // Точка входа
     public static void sort(int[] array, Metrics m) {
         metrics = m;
         metrics.reset();
 
-        metrics.startTimer(); // замер времени
+        metrics.startTimer(); 
 
         int[] buffer = new int[array.length];
         metrics.incAllocations(array.length);
 
         mergeSort(array, buffer, 0, array.length - 1);
 
-        metrics.stopTimer(); // остановка таймера
+        metrics.stopTimer(); 
     }
 
-    // Рекурсивный mergesort
+   
     private static void mergeSort(int[] arr, int[] buffer, int left, int right) {
         if (left >= right) return;
 
@@ -39,7 +38,7 @@ public class MergeSort {
         metrics.exitRecursion();
     }
 
-    // Слияние двух отсортированных частей
+   
     private static void merge(int[] arr, int[] buffer, int left, int mid, int right) {
         int i = left;
         int j = mid + 1;
@@ -62,7 +61,7 @@ public class MergeSort {
         }
     }
 
-    // Insertion sort для маленьких массивов
+  
     private static void insertionSort(int[] arr, int left, int right) {
         for (int i = left + 1; i <= right; i++) {
             int key = arr[i];
